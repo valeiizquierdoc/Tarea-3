@@ -70,7 +70,7 @@
       padding: 1.5rem;
       border-radius: 18px;
       box-shadow: 0 0 25px rgba(179, 138, 255, 0.15);
-      transition: transform 0.3s ease, box-shadow 0.3s ease;
+      transition: 0.3s ease;
     }
 
     .card:hover {
@@ -86,28 +86,63 @@
       margin-bottom: 1rem;
     }
 
-    .card h3 {
-      color: var(--accent-lavanda);
-      margin-bottom: 0.5rem;
+    .info-btn {
+      margin-top: 0.8rem;
+      background: var(--accent-lila);
+      color: #000;
+      padding: 0.6rem 1rem;
+      border-radius: 10px;
+      text-align: center;
+      font-weight: 600;
+      cursor: pointer;
+      transition: 0.3s ease;
+      border: none;
+      width: 100%;
     }
 
-    details {
-      margin-top: 0.8rem;
-      background: #231b30;
-      padding: 0.8rem;
+    .info-btn:hover {
+      background: var(--accent-lavanda);
+    }
+
+    /* MODAL */
+    .modal {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: rgba(0,0,0,0.7);
+      display: none;
+      justify-content: center;
+      align-items: center;
+      padding: 1rem;
+      z-index: 1000;
+    }
+
+    .modal-content {
+      background: var(--card-dark);
+      padding: 2rem;
+      border-radius: 18px;
+      max-width: 500px;
+      text-align: center;
+      box-shadow: 0 0 40px rgba(215,198,255,0.4);
+      animation: fadeIn 0.4s ease;
+    }
+
+    .close-btn {
+      margin-top: 1rem;
+      background: var(--accent-lila);
+      padding: 0.6rem 1rem;
+      border: none;
+      color: #000;
       border-radius: 10px;
       cursor: pointer;
+      font-weight: 600;
       transition: 0.3s;
     }
 
-    details summary {
-      font-weight: 600;
-      color: var(--accent-lila);
-    }
-
-    details p {
-      margin-top: 0.5rem;
-      color: var(--text-muted);
+    .close-btn:hover {
+      background: var(--accent-lavanda);
     }
 
     footer {
@@ -122,7 +157,7 @@
 
 <header>
   <h1>Mundo Canino</h1>
-  <p class="subtitle">Razas — Características — Curiosidades (Modo Oscuro Lila & Lavanda)</p>
+  <p class="subtitle">Razas — Características — Curiosidades</p>
 </header>
 
 <div class="container">
@@ -130,59 +165,57 @@
 
   <div class="grid">
 
-    <!-- Labrador -->
+    <!-- Ejemplo modificable de tarjeta -->
     <div class="card">
       <img src="https://images.unsplash.com/photo-1518717758536-85ae29035b6d?auto=format&fit=crop&w=800&q=80" alt="Labrador Retriever" />
       <h3>Labrador Retriever</h3>
       <p>Amigable, juguetón y perfecto para familias.</p>
-      <details>
-        <summary>Más características</summary>
-        <p>Altamente entrenable, excelente para niños, energía alta, predisposición a trabajar como perro de asistencia.</p>
-      </details>
+      <button class="info-btn" onclick="showInfo('Labrador Retriever', 'Son perros extremadamente sociables, inteligentes y fáciles de entrenar. Ideales para niños y terapias.')">Ver más</button>
     </div>
 
-    <!-- Husky -->
+    <!-- Más razas aquí -->
+
+    <!-- TERRIERS -->
     <div class="card">
-      <img src="https://images.unsplash.com/photo-1517849845537-4d257902454a?auto=format&fit=crop&w=800&q=80" alt="Husky Siberiano" />
-      <h3>Husky Siberiano</h3>
-      <p>Elegante, energético y famoso por sus ojos claros.</p>
-      <details>
-        <summary>Más características</summary>
-        <p>Necesita ejercicio intenso, muy sociable, escapa si no se lo vigila bien, clima frío ideal.</p>
-      </details>
+      <img src="https://images.unsplash.com/photo-1596495577886-d920f1fb7238?auto=format&fit=crop&w=800&q=80" />
+      <h3>Jack Russell Terrier</h3>
+      <p>Enérgico, valiente y muy inteligente.</p>
+      <button class="info-btn" onclick="showInfo('Jack Russell Terrier', 'Requiere actividad intensa y estimulación mental constante. Es un perro cazador y muy activo.')">Ver más</button>
     </div>
 
-    <!-- Golden -->
     <div class="card">
-      <img src="https://images.unsplash.com/photo-1558944351-c6d6d6ae7f3b?auto=format&fit=crop&w=800&q=80" alt="Golden Retriever" />
-      <h3>Golden Retriever</h3>
-      <p>Cariñoso, noble y excelente para terapias.</p>
-      <details>
-        <summary>Más características</summary>
-        <p>Muy sociable, aprende rápido, requiere actividades mentales, pelaje que necesita mantenimiento.</p>
-      </details>
+      <img src="https://images.unsplash.com/photo-1602067340370-bd3432f0a53f?auto=format&fit=crop&w=800&q=80" />
+      <h3>Yorkshire Terrier</h3>
+      <p>Pequeño, elegante y lleno de carácter.</p>
+      <button class="info-btn" onclick="showInfo('Yorkshire Terrier', 'Muy cariñoso y protector con su dueño. Ideal para espacios pequeños.')">Ver más</button>
     </div>
 
-    <!-- Shiba -->
     <div class="card">
-      <img src="https://images.unsplash.com/photo-1601758003122-58c0d478df1b?auto=format&fit=crop&w=800&q=80" alt="Shiba Inu" />
-      <h3>Shiba Inu</h3>
-      <p>Independiente, elegante y expresivo.</p>
-      <details>
-        <summary>Más características</summary>
-        <p>Leales pero no extremadamente cariñosos, inteligentes y territoriales, muy limpios, vocales.</p>
-      </details>
+      <img src="https://images.unsplash.com/photo-1619983081638-44cc979f4098?auto=format&fit=crop&w=800&q=80" />
+      <h3>Bull Terrier</h3>
+      <p>Fuerte, leal y de carácter único.</p>
+      <button class="info-btn" onclick="showInfo('Bull Terrier', 'Necesita un líder firme y afectuoso. Muy juguetón y leal a su familia.')">Ver más</button>
     </div>
 
-    <!-- Border Collie -->
     <div class="card">
-      <img src="https://images.unsplash.com/photo-1507149833265-60c372daea22?auto=format&fit=crop&w=800&q=80" alt="Border Collie" />
-      <h3>Border Collie</h3>
-      <p>Considerado el perro más inteligente del mundo.</p>
-      <details>
-        <summary>Más características</summary>
-        <p>Necesita estimulación constante, excelente para deportes caninos, muy obediente y atento.</p>
-      </details>
+      <img src="https://images.unsplash.com/photo-1617814076499-bbcdf2b08d4a?auto=format&fit=crop&w=800&q=80" />
+      <h3>Airedale Terrier</h3>
+      <p>El más grande de los terriers.</p>
+      <button class="info-btn" onclick="showInfo('Airedale Terrier', 'Valiente, inteligente y excelente guardián. Requiere ejercicio moderado.')">Ver más</button>
+    </div>
+
+    <div class="card">
+      <img src="https://images.unsplash.com/photo-1534423861386-85a16f5d13fd?auto=format&fit=crop&w=800&q=80" />
+      <h3>Scottish Terrier</h3>
+      <p>Elegante e independiente.</p>
+      <button class="info-btn" onclick="showInfo('Scottish Terrier', 'Personalidad fuerte, muy leal y buen compañero en el hogar.')">Ver más</button>
+    </div>
+
+    <div class="card">
+      <img src="https://images.unsplash.com/photo-1618828665526-40bb9fcd51cb?auto=format&fit=crop&w=800&q=80" />
+      <h3>West Highland White Terrier</h3>
+      <p>Alegre y muy sociable.</p>
+      <button class="info-btn" onclick="showInfo('West Highland White Terrier', 'Perfecto para familias, activo y muy cariñoso.')">Ver más</button>
     </div>
 
   </div>
@@ -191,6 +224,27 @@
 <footer>
   © 2025 Mundo Canino — Estilo Dark Lavender Edition 🐾💜
 </footer>
+
+<!-- MODAL -->
+<div class="modal" id="dogModal">
+  <div class="modal-content">
+    <h3 id="modalTitle"></h3>
+    <p id="modalText"></p>
+    <button class="close-btn" onclick="closeModal()">Cerrar</button>
+  </div>
+</div>
+
+<script>
+  function showInfo(name, text) {
+    document.getElementById('modalTitle').innerText = name;
+    document.getElementById('modalText').innerText = text;
+    document.getElementById('dogModal').style.display = 'flex';
+  }
+
+  function closeModal() {
+    document.getElementById('dogModal').style.display = 'none';
+  }
+</script>
 
 </body>
 </html>
