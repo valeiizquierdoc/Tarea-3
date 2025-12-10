@@ -1,0 +1,196 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Mundo Canino — Dark Lavender Edition</title>
+  <style>
+    :root {
+      --bg-dark: #0d0b10;
+      --card-dark: #1a1620;
+      --accent-lila: #b38aff;
+      --accent-lavanda: #d7c6ff;
+      --text-light: #f4f0ff;
+      --text-muted: #cfc6e8;
+    }
+
+    body {
+      margin: 0;
+      font-family: "Poppins", sans-serif;
+      background: var(--bg-dark);
+      color: var(--text-light);
+    }
+
+    header {
+      padding: 3rem 1rem;
+      text-align: center;
+      background: linear-gradient(135deg, #2d2144, #120f1a);
+      animation: fadeIn 1.2s ease;
+    }
+
+    @keyframes fadeIn {
+      from { opacity: 0; }
+      to { opacity: 1; }
+    }
+
+    h1 {
+      font-size: 3rem;
+      color: var(--accent-lila);
+      margin: 0;
+    }
+
+    p.subtitle {
+      color: var(--accent-lavanda);
+      margin-top: 0.5rem;
+      font-size: 1.2rem;
+    }
+
+    .container {
+      max-width: 1200px;
+      margin: auto;
+      padding: 2rem;
+      animation: fadeIn 1.5s ease;
+    }
+
+    .section-title {
+      text-align: center;
+      color: var(--accent-lila);
+      font-size: 2.3rem;
+      margin-bottom: 2rem;
+    }
+
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(270px, 1fr));
+      gap: 2rem;
+    }
+
+    .card {
+      background: var(--card-dark);
+      padding: 1.5rem;
+      border-radius: 18px;
+      box-shadow: 0 0 25px rgba(179, 138, 255, 0.15);
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+
+    .card:hover {
+      transform: translateY(-8px);
+      box-shadow: 0 0 35px rgba(215, 198, 255, 0.3);
+    }
+
+    .card img {
+      width: 100%;
+      height: 200px;
+      object-fit: cover;
+      border-radius: 12px;
+      margin-bottom: 1rem;
+    }
+
+    .card h3 {
+      color: var(--accent-lavanda);
+      margin-bottom: 0.5rem;
+    }
+
+    details {
+      margin-top: 0.8rem;
+      background: #231b30;
+      padding: 0.8rem;
+      border-radius: 10px;
+      cursor: pointer;
+      transition: 0.3s;
+    }
+
+    details summary {
+      font-weight: 600;
+      color: var(--accent-lila);
+    }
+
+    details p {
+      margin-top: 0.5rem;
+      color: var(--text-muted);
+    }
+
+    footer {
+      margin-top: 3rem;
+      padding: 1.5rem;
+      text-align: center;
+      color: var(--accent-lavanda);
+    }
+  </style>
+</head>
+<body>
+
+<header>
+  <h1>Mundo Canino</h1>
+  <p class="subtitle">Razas — Características — Curiosidades (Modo Oscuro Lila & Lavanda)</p>
+</header>
+
+<div class="container">
+  <h2 class="section-title">Razas Populares</h2>
+
+  <div class="grid">
+
+    <!-- Labrador -->
+    <div class="card">
+      <img src="https://images.unsplash.com/photo-1518717758536-85ae29035b6d?auto=format&fit=crop&w=800&q=80" alt="Labrador Retriever" />
+      <h3>Labrador Retriever</h3>
+      <p>Amigable, juguetón y perfecto para familias.</p>
+      <details>
+        <summary>Más características</summary>
+        <p>Altamente entrenable, excelente para niños, energía alta, predisposición a trabajar como perro de asistencia.</p>
+      </details>
+    </div>
+
+    <!-- Husky -->
+    <div class="card">
+      <img src="https://images.unsplash.com/photo-1517849845537-4d257902454a?auto=format&fit=crop&w=800&q=80" alt="Husky Siberiano" />
+      <h3>Husky Siberiano</h3>
+      <p>Elegante, energético y famoso por sus ojos claros.</p>
+      <details>
+        <summary>Más características</summary>
+        <p>Necesita ejercicio intenso, muy sociable, escapa si no se lo vigila bien, clima frío ideal.</p>
+      </details>
+    </div>
+
+    <!-- Golden -->
+    <div class="card">
+      <img src="https://images.unsplash.com/photo-1558944351-c6d6d6ae7f3b?auto=format&fit=crop&w=800&q=80" alt="Golden Retriever" />
+      <h3>Golden Retriever</h3>
+      <p>Cariñoso, noble y excelente para terapias.</p>
+      <details>
+        <summary>Más características</summary>
+        <p>Muy sociable, aprende rápido, requiere actividades mentales, pelaje que necesita mantenimiento.</p>
+      </details>
+    </div>
+
+    <!-- Shiba -->
+    <div class="card">
+      <img src="https://images.unsplash.com/photo-1601758003122-58c0d478df1b?auto=format&fit=crop&w=800&q=80" alt="Shiba Inu" />
+      <h3>Shiba Inu</h3>
+      <p>Independiente, elegante y expresivo.</p>
+      <details>
+        <summary>Más características</summary>
+        <p>Leales pero no extremadamente cariñosos, inteligentes y territoriales, muy limpios, vocales.</p>
+      </details>
+    </div>
+
+    <!-- Border Collie -->
+    <div class="card">
+      <img src="https://images.unsplash.com/photo-1507149833265-60c372daea22?auto=format&fit=crop&w=800&q=80" alt="Border Collie" />
+      <h3>Border Collie</h3>
+      <p>Considerado el perro más inteligente del mundo.</p>
+      <details>
+        <summary>Más características</summary>
+        <p>Necesita estimulación constante, excelente para deportes caninos, muy obediente y atento.</p>
+      </details>
+    </div>
+
+  </div>
+</div>
+
+<footer>
+  © 2025 Mundo Canino — Estilo Dark Lavender Edition 🐾💜
+</footer>
+
+</body>
+</html>
