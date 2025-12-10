@@ -14,216 +14,123 @@
       --text-muted: #cfc6e8;
     }
 
-    body {
-      margin: 0;
-      font-family: "Poppins", sans-serif;
-      background: var(--bg-dark);
-      color: var(--text-light);
-    }
+    body { margin: 0; font-family: "Poppins", sans-serif; background: var(--bg-dark); color: var(--text-light); scroll-behavior: smooth; }
 
-    header {
-      padding: 3rem 1rem;
-      text-align: center;
-      background: linear-gradient(135deg, #2d2144, #120f1a);
-      animation: fadeIn 1.2s ease;
-    }
+    header { padding: 3rem 1rem; text-align: center; background: linear-gradient(135deg, #2d2144, #120f1a); animation: fadeIn 1.2s ease; }
 
-    @keyframes fadeIn {
-      from { opacity: 0; }
-      to { opacity: 1; }
-    }
+    nav { display: flex; justify-content: center; gap: 2rem; padding: 1rem; background: #1a1620; position: sticky; top: 0; z-index: 100; }
+    nav a { color: var(--accent-lavanda); font-weight: 600; text-decoration: none; transition: 0.3s; }
+    nav a:hover { color: white; }
 
-    h1 {
-      font-size: 3rem;
-      color: var(--accent-lila);
-      margin: 0;
-    }
+    @keyframes fadeIn { from { opacity: 0; transform: translateY(20px); } to { opacity: 1; transform: translateY(0); } }
+    @keyframes pop { from { transform: scale(0.9); opacity: 0; } to { transform: scale(1); opacity: 1; } }
 
-    p.subtitle {
-      color: var(--accent-lavanda);
-      margin-top: 0.5rem;
-      font-size: 1.2rem;
-    }
+    .container { max-width: 1200px; margin: auto; padding: 2rem; }
+    .section-title { text-align: center; color: var(--accent-lila); font-size: 2.5rem; margin-bottom: 2rem; }
 
-    .container {
-      max-width: 1200px;
-      margin: auto;
-      padding: 2rem;
-      animation: fadeIn 1.5s ease;
-    }
+    .grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(270px, 1fr)); gap: 2rem; animation: fadeIn 1.5s ease; }
 
-    .section-title {
-      text-align: center;
-      color: var(--accent-lila);
-      font-size: 2.3rem;
-      margin-bottom: 2rem;
-    }
+    .card { background: var(--card-dark); padding: 1.5rem; border-radius: 18px; box-shadow: 0 0 25px rgba(179,138,255,0.15); transition: 0.3s ease; animation: pop 0.5s ease; }
+    .card:hover { transform: translateY(-8px); box-shadow: 0 0 40px rgba(215,198,255,0.4); }
+    .card img { width: 100%; height: 200px; object-fit: cover; border-radius: 12px; margin-bottom: 1rem; }
 
-    .grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(270px, 1fr));
-      gap: 2rem;
-    }
+    .info-btn { margin-top: 0.8rem; background: var(--accent-lila); color: #000; padding: 0.6rem; border-radius: 10px; font-weight: 600; border: none; width: 100%; cursor: pointer; }
+    .info-btn:hover { background: var(--accent-lavanda); }
 
-    .card {
-      background: var(--card-dark);
-      padding: 1.5rem;
-      border-radius: 18px;
-      box-shadow: 0 0 25px rgba(179, 138, 255, 0.15);
-      transition: 0.3s ease;
-    }
+    /* Modal */
+    .modal { position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.7); display: none; justify-content: center; align-items: center; padding: 1rem; z-index: 200; }
+    .modal-content { background: var(--card-dark); padding: 2rem; border-radius: 18px; max-width: 500px; text-align: center; box-shadow: 0 0 40px rgba(215,198,255,0.4); animation: fadeIn 0.4s ease; }
+    .close-btn { margin-top: 1rem; background: var(--accent-lila); padding: 0.6rem 1rem; border: none; color: #000; border-radius: 10px; font-weight: 600; cursor: pointer; }
 
-    .card:hover {
-      transform: translateY(-8px);
-      box-shadow: 0 0 35px rgba(215, 198, 255, 0.3);
-    }
-
-    .card img {
-      width: 100%;
-      height: 200px;
-      object-fit: cover;
-      border-radius: 12px;
-      margin-bottom: 1rem;
-    }
-
-    .info-btn {
-      margin-top: 0.8rem;
-      background: var(--accent-lila);
-      color: #000;
-      padding: 0.6rem 1rem;
-      border-radius: 10px;
-      text-align: center;
-      font-weight: 600;
-      cursor: pointer;
-      transition: 0.3s ease;
-      border: none;
-      width: 100%;
-    }
-
-    .info-btn:hover {
-      background: var(--accent-lavanda);
-    }
-
-    /* MODAL */
-    .modal {
-      position: fixed;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 100%;
-      background: rgba(0,0,0,0.7);
-      display: none;
-      justify-content: center;
-      align-items: center;
-      padding: 1rem;
-      z-index: 1000;
-    }
-
-    .modal-content {
-      background: var(--card-dark);
-      padding: 2rem;
-      border-radius: 18px;
-      max-width: 500px;
-      text-align: center;
-      box-shadow: 0 0 40px rgba(215,198,255,0.4);
-      animation: fadeIn 0.4s ease;
-    }
-
-    .close-btn {
-      margin-top: 1rem;
-      background: var(--accent-lila);
-      padding: 0.6rem 1rem;
-      border: none;
-      color: #000;
-      border-radius: 10px;
-      cursor: pointer;
-      font-weight: 600;
-      transition: 0.3s;
-    }
-
-    .close-btn:hover {
-      background: var(--accent-lavanda);
-    }
-
-    footer {
-      margin-top: 3rem;
-      padding: 1.5rem;
-      text-align: center;
-      color: var(--accent-lavanda);
-    }
+    footer { margin-top: 3rem; text-align: center; padding: 2rem; color: var(--accent-lavanda); }
   </style>
 </head>
 <body>
 
 <header>
   <h1>Mundo Canino</h1>
-  <p class="subtitle">Razas — Características — Curiosidades</p>
+  <p class="subtitle">Razas — Filtros — Secciones — Animaciones</p>
 </header>
 
-<div class="container">
-  <h2 class="section-title">Razas Populares</h2>
+<nav>
+  <a href="#populares">Populares</a>
+  <a href="#terriers">Terriers</a>
+  <a href="#pastores">Pastores</a>
+  <a href="#toy">Toy</a>
+</nav>
 
+<!-- BUSCADOR EN TIEMPO REAL -->
+<div style="text-align:center; padding:1.5rem;">
+  <input id="searchBar" type="text" placeholder="🔍 Buscar raza de perro..." 
+    style="width:70%; padding:0.8rem; border-radius:12px; border:none; font-size:1rem; background:#1a1620; color:var(--text-light); box-shadow:0 0 15px rgba(179,138,255,0.2);">
+</div>
+
+<!-- SECCIÓN 1: Razas Populares -->
+<section id="populares" class="container">
+  <h2 class="section-title">Razas Populares</h2>
   <div class="grid">
 
-    <!-- Ejemplo modificable de tarjeta -->
     <div class="card">
-      <img src="https://images.unsplash.com/photo-1518717758536-85ae29035b6d?auto=format&fit=crop&w=800&q=80" alt="Labrador Retriever" />
+      <img src="https://images.unsplash.com/photo-1518717758536-85ae29035b6d?auto=format&fit=crop&w=800&q=80" />
       <h3>Labrador Retriever</h3>
-      <p>Amigable, juguetón y perfecto para familias.</p>
-      <button class="info-btn" onclick="showInfo('Labrador Retriever', 'Son perros extremadamente sociables, inteligentes y fáciles de entrenar. Ideales para niños y terapias.')">Ver más</button>
-    </div>
-
-    <!-- Más razas aquí -->
-
-    <!-- TERRIERS -->
-    <div class="card">
-      <img src="https://images.unsplash.com/photo-1596495577886-d920f1fb7238?auto=format&fit=crop&w=800&q=80" />
-      <h3>Jack Russell Terrier</h3>
-      <p>Enérgico, valiente y muy inteligente.</p>
-      <button class="info-btn" onclick="showInfo('Jack Russell Terrier', 'Requiere actividad intensa y estimulación mental constante. Es un perro cazador y muy activo.')">Ver más</button>
+      <p>Amigable y familiar.</p>
+      <button class="info-btn" onclick="showInfo('Labrador Retriever', 'Excelentes para familias, terapias y asistencia.')">Ver más</button>
     </div>
 
     <div class="card">
-      <img src="https://images.unsplash.com/photo-1602067340370-bd3432f0a53f?auto=format&fit=crop&w=800&q=80" />
-      <h3>Yorkshire Terrier</h3>
-      <p>Pequeño, elegante y lleno de carácter.</p>
-      <button class="info-btn" onclick="showInfo('Yorkshire Terrier', 'Muy cariñoso y protector con su dueño. Ideal para espacios pequeños.')">Ver más</button>
+      <img src="https://images.unsplash.com/photo-1517849845537-4d257902454a?auto=format&fit=crop&w=800&q=80" />
+      <h3>Husky Siberiano</h3>
+      <p>Elegante y energético.</p>
+      <button class="info-btn" onclick="showInfo('Husky Siberiano', 'Muy activo, sociable y amante del frío.')">Ver más</button>
     </div>
 
     <div class="card">
-      <img src="https://images.unsplash.com/photo-1619983081638-44cc979f4098?auto=format&fit=crop&w=800&q=80" />
-      <h3>Bull Terrier</h3>
-      <p>Fuerte, leal y de carácter único.</p>
-      <button class="info-btn" onclick="showInfo('Bull Terrier', 'Necesita un líder firme y afectuoso. Muy juguetón y leal a su familia.')">Ver más</button>
-    </div>
-
-    <div class="card">
-      <img src="https://images.unsplash.com/photo-1617814076499-bbcdf2b08d4a?auto=format&fit=crop&w=800&q=80" />
-      <h3>Airedale Terrier</h3>
-      <p>El más grande de los terriers.</p>
-      <button class="info-btn" onclick="showInfo('Airedale Terrier', 'Valiente, inteligente y excelente guardián. Requiere ejercicio moderado.')">Ver más</button>
-    </div>
-
-    <div class="card">
-      <img src="https://images.unsplash.com/photo-1534423861386-85a16f5d13fd?auto=format&fit=crop&w=800&q=80" />
-      <h3>Scottish Terrier</h3>
-      <p>Elegante e independiente.</p>
-      <button class="info-btn" onclick="showInfo('Scottish Terrier', 'Personalidad fuerte, muy leal y buen compañero en el hogar.')">Ver más</button>
-    </div>
-
-    <div class="card">
-      <img src="https://images.unsplash.com/photo-1618828665526-40bb9fcd51cb?auto=format&fit=crop&w=800&q=80" />
-      <h3>West Highland White Terrier</h3>
-      <p>Alegre y muy sociable.</p>
-      <button class="info-btn" onclick="showInfo('West Highland White Terrier', 'Perfecto para familias, activo y muy cariñoso.')">Ver más</button>
+      <img src="https://images.unsplash.com/photo-1558944351-c6d6d6ae7f3b?auto=format&fit=crop&w=800&q=80" />
+      <h3>Golden Retriever</h3>
+      <p>Dulce y equilibrado.</p>
+      <button class="info-btn" onclick="showInfo('Golden Retriever', 'Ideal para terapias, familias y entrenamiento.')">Ver más</button>
     </div>
 
   </div>
-</div>
+</section>
 
-<footer>
-  © 2025 Mundo Canino — Estilo Dark Lavender Edition 🐾💜
-</footer>
+<!-- SECCIÓN 2: TERRIERS -->
+<section id="terriers" class="container">
+  <h2 class="section-title">Terriers</h2>
+  <div class="grid">
+
+    <div class="card"><img src="https://images.unsplash.com/photo-1596495577886-d920f1fb7238?auto=format&fit=crop&w=800&q=80" /><h3>Jack Russell Terrier</h3><p>Enérgico y valiente.</p><button class="info-btn" onclick="showInfo('Jack Russell Terrier','Muy activo y cazador.')">Ver más</button></div>
+
+    <div class="card"><img src="https://images.unsplash.com/photo-1602067340370-bd3432f0a53f?auto=format&fit=crop&w=800&q=80" /><h3>Yorkshire Terrier</h3><p>Pequeño y elegante.</p><button class="info-btn" onclick="showInfo('Yorkshire Terrier','Perfecto para interiores.')">Ver más</button></div>
+
+    <div class="card"><img src="https://images.unsplash.com/photo-1619983081638-44cc979f4098?auto=format&fit=crop&w=800&q=80" /><h3>Bull Terrier</h3><p>Fuerte y leal.</p><button class="info-btn" onclick="showInfo('Bull Terrier','Muy fiel y protector.')">Ver más</button></div>
+
+  </div>
+</section>
+
+<!-- SECCIÓN 3: PASTORES -->
+<section id="pastores" class="container">
+  <h2 class="section-title">Pastores</h2>
+  <div class="grid">
+
+    <div class="card"><img src="https://images.unsplash.com/photo-1507149833265-60c372daea22?auto=format&fit=crop&w=800&q=80" /><h3>Border Collie</h3><p>El más inteligente.</p><button class="info-btn" onclick="showInfo('Border Collie','Requiere mucha estimulación mental.')">Ver más</button></div>
+
+    <div class="card"><img src="https://images.unsplash.com/photo-1517423440428-a5a00ad493e8?auto=format&fit=crop&w=800&q=80" /><h3>Pastor Alemán</h3><p>Fuerte y noble.</p><button class="info-btn" onclick="showInfo('Pastor Alemán','Excelente perro de trabajo y protección.')">Ver más</button></div>
+
+  </div>
+</section>
+
+<!-- SECCIÓN 4: TOY -->
+<section id="toy" class="container">
+  <h2 class="section-title">Razas Toy</h2>
+  <div class="grid">
+
+    <div class="card"><img src="https://images.unsplash.com/photo-1558944351-c6d6d6ae7f3b?auto=format&fit=crop&w=800&q=80" /><h3>Pomerania</h3><p>Esponjoso y adorable.</p><button class="info-btn" onclick="showInfo('Pomerania','Muy sociable y juguetón.')">Ver más</button></div>
+
+    <div class="card"><img src="https://images.unsplash.com/photo-1583511655857-d19b40a7a54e?auto=format&fit=crop&w=800&q=80" /><h3>Chihuahua</h3><p>Pequeño y valiente.</p><button class="info-btn" onclick="showInfo('Chihuahua','Gran personalidad en un cuerpo pequeño.')">Ver más</button></div>
+
+  </div>
+</section>
 
 <!-- MODAL -->
 <div class="modal" id="dogModal">
@@ -240,11 +147,29 @@
     document.getElementById('modalText').innerText = text;
     document.getElementById('dogModal').style.display = 'flex';
   }
+  function closeModal() { document.getElementById('dogModal').style.display = 'none'; }
 
-  function closeModal() {
-    document.getElementById('dogModal').style.display = 'none';
-  }
+  // Buscador en tiempo real
+  const searchBar = document.getElementById('searchBar');
+
+  searchBar.addEventListener('input', () => {
+    const filter = searchBar.value.toLowerCase();
+    const cards = document.querySelectorAll('.card');
+
+    cards.forEach(card => {
+      const title = card.querySelector('h3').innerText.toLowerCase();
+      if (title.includes(filter)) {
+        card.style.display = "block";
+      } else {
+        card.style.display = "none";
+      }
+    });
+  });
 </script>
+
+<footer>
+  © 2025 Mundo Canino — Página Multi-Sección 🐾💜
+</footer>
 
 </body>
 </html>
